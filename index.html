@@ -18,15 +18,18 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
 <script>
-/* CDN safety net: some browsers/CDNs expose Framer Motion under a different global. */
-if(!window.Motion || !window.Motion.motion){
-  const fallbackMotion = new Proxy({}, {get:(_,tag)=>(props)=>React.createElement(tag, props, props && props.children)});
-  window.Motion = {motion:fallbackMotion, AnimatePresence:(props)=>React.createElement(React.Fragment,null,props.children)};
-}
-if(!window.lucide && !window.Lucide){
-  window.lucide = {};
-}
-window.addEventListener('error', function(e){ console.error('Bagan archive boot error:', e.error || e.message); });
+(function(){
+  const R=window.React;
+  const passthrough=['initial','animate','exit','whileInView','viewport','transition','layout','layoutId','whileHover','whileTap','onAnimationStart','onAnimationComplete'];
+  const makeMotion=(tag)=>R.forwardRef((props,ref)=>{const clean={};Object.keys(props||{}).forEach(k=>{if(!passthrough.includes(k))clean[k]=props[k]});return R.createElement(tag,{...clean,ref});});
+  const motion=new Proxy({}, {get:(_,tag)=>makeMotion(tag)});
+  window.Motion={motion,AnimatePresence:({children})=>R.createElement(R.Fragment,null,children)};
+  const iconNames=['MapPin','Play','Pause','Volume2','VolumeX','X','ChevronLeft','ChevronRight','Camera','CalendarDays','Mic2','ArrowDown','Menu','LocateFixed'];
+  const icons={};
+  iconNames.forEach(name=>{icons[name]=R.forwardRef((props,ref)=>R.createElement('svg',{ref,width:props.size||18,height:props.size||18,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:props.strokeWidth||1.7,strokeLinecap:'round',strokeLinejoin:'round','aria-hidden':'true'},R.createElement('circle',{cx:12,cy:12,r:7})));});
+  window.lucide=icons;
+  window.addEventListener('error',e=>console.error('Bagan boot error:',e.error||e.message));
+})();
 </script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel" data-presets="react" src="app.js"></script>
