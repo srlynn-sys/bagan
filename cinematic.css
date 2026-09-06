@@ -5,9 +5,9 @@ body{background:#03020a}
 .enter-btn{position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(255,225,157,.12),0 0 34px rgba(217,164,70,.1);transition:transform .35s,box-shadow .35s}
 .enter-btn:hover{transform:translateY(-3px) scale(1.025)}
 .launching .home{animation:launchZoom .85s cubic-bezier(.7,0,.1,1) forwards!important}
-.galaxy-page .space{position:relative}
+.galaxy-page .space{position:absolute;inset:-15%;}
 .galaxy-page .space:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,48%),rgba(255,221,145,.08),transparent 22%,transparent 55%)}
-.photo-field{position:relative;z-index:2}
+.photo-field{position:absolute;inset:0;z-index:2}
 .memory-photo.focused{filter:saturate(1.12) brightness(1.08)!important;box-shadow:0 0 0 1px rgba(255,226,156,.42),0 0 28px rgba(224,177,81,.22)!important}
 @keyframes cinematicSun{to{transform:scale(1.12);opacity:.86}}
 @keyframes goldSweep{to{background-position:220% center}}
