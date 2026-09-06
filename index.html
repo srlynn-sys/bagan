@@ -17,6 +17,17 @@
 <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+<script>
+/* CDN safety net: some browsers/CDNs expose Framer Motion under a different global. */
+if(!window.Motion || !window.Motion.motion){
+  const fallbackMotion = new Proxy({}, {get:(_,tag)=>(props)=>React.createElement(tag, props, props && props.children)});
+  window.Motion = {motion:fallbackMotion, AnimatePresence:(props)=>React.createElement(React.Fragment,null,props.children)};
+}
+if(!window.lucide && !window.Lucide){
+  window.lucide = {};
+}
+window.addEventListener('error', function(e){ console.error('Bagan archive boot error:', e.error || e.message); });
+</script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel" data-presets="react" src="app.js"></script>
 </body>
