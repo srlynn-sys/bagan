@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#03020a"><title>Bagan — Memory Galaxy</title><link rel="stylesheet" href="galaxy.css"><link rel="stylesheet" href="galaxy-enhancements.css"><link rel="stylesheet" href="viewer-mobile-smooth.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#03020a"><title>Bagan — Memory Galaxy</title><link rel="stylesheet" href="galaxy.css"><link rel="stylesheet" href="galaxy-enhancements.css"><link rel="stylesheet" href="galaxy-layout-polish.css"><link rel="stylesheet" href="viewer-mobile-smooth.css">
 <style>
 #musicGate{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:rgba(3,2,8,.72);backdrop-filter:blur(8px);color:#f3d3a0;font:11px monospace;letter-spacing:.18em;text-transform:uppercase}
 #musicGate button{border:1px solid rgba(237,178,105,.65);background:rgba(12,7,12,.75);color:#f3c17f;padding:15px 24px;font:inherit;letter-spacing:inherit;cursor:pointer;box-shadow:0 0 35px rgba(228,164,91,.16)}
@@ -12,25 +12,13 @@
 <div id="space"><div class="nebula n1"></div><div class="nebula n2"></div><div class="stars"></div><div class="dustband"></div><div id="galaxy"><div id="core"><div class="galaxy-cluster" aria-hidden="true"></div><div class="core-glow"></div><div class="core-ring"></div><span>BAGAN</span></div><div id="photos"></div></div></div>
 <header><a href="index.html" class="back">← BAGAN</a><div class="hint">DRAG TO ROTATE · WHEEL TO ZOOM</div><button id="auto">AUTO ROTATE <b>ON</b></button></header>
 <div class="counter"><b id="count">55</b><span>MEMORIES IN ORBIT</span></div>
-<div id="viewer" aria-hidden="true"><button id="close">×</button><img id="viewerImg" alt="Bagan memory"><div id="viewerText"></div></div>
+<div id="viewer" aria-hidden="true"><img id="viewerImg" alt="Bagan memory"><div id="viewerText"></div></div>
 <audio id="baganMusic" preload="auto" autoplay loop playsinline src="https://files.catbox.moe/va63xn.mp3"></audio>
 <div id="musicGate"><button id="startMusic">♪ PLAY THE MEMORY</button></div>
-<script src="galaxy.js"></script><script src="galaxy-enhancements.js"></script><script src="viewer-touch.js"></script>
+<script src="galaxy.js"></script><script src="galaxy-enhancements.js"></script><script src="orbit-layout-tuning.js"></script><script src="viewer-touch.js"></script>
 <script>
-const music=document.getElementById('baganMusic');
-const gate=document.getElementById('musicGate');
-const start=document.getElementById('startMusic');
-async function startMemoryMusic(){
-  try{
-    music.volume=.78;
-    await music.play();
-    gate.classList.remove('show');
-    sessionStorage.setItem('baganMusic','playing');
-  }catch(e){
-    gate.classList.add('show');
-  }
-}
-window.addEventListener('load',startMemoryMusic);
-start.addEventListener('click',startMemoryMusic);
+const music=document.getElementById('baganMusic');const gate=document.getElementById('musicGate');const start=document.getElementById('startMusic');
+async function startMemoryMusic(){try{music.volume=.78;await music.play();gate.classList.remove('show');sessionStorage.setItem('baganMusic','playing')}catch(e){gate.classList.add('show')}}
+window.addEventListener('load',startMemoryMusic);start.addEventListener('click',startMemoryMusic);
 </script>
 </body></html>
