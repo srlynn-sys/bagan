@@ -24,6 +24,25 @@
   seedParticles();
   galaxySpace.appendChild(particles);
 
+  // The photo viewer gets its own copy of the original Bagan galaxy core.
+  // It sits behind the selected memory and keeps spinning while the image is open.
+  const viewer=document.getElementById('viewer');
+  if(viewer&&!viewer.querySelector('.viewer-galaxy')){
+    const backdrop=document.createElement('div');
+    backdrop.className='viewer-galaxy';
+    backdrop.setAttribute('aria-hidden','true');
+    backdrop.innerHTML=`
+      <div class="viewer-nebula vn1"></div>
+      <div class="viewer-nebula vn2"></div>
+      <div class="viewer-stars"></div>
+      <div class="viewer-galaxy-core">
+        <div class="viewer-galaxy-cluster"></div>
+        <div class="viewer-core-glow"></div>
+        <div class="viewer-core-ring"></div>
+      </div>`;
+    viewer.prepend(backdrop);
+  }
+
   galaxySpace.addEventListener('pointermove',e=>{
     if(document.querySelector('#viewer.open'))return;
     const dx=(e.clientX-innerWidth/2)/innerWidth;
