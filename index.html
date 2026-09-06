@@ -14,14 +14,11 @@
 <div class="dust"></div><div class="center"><div class="eyebrow">MYANMAR · BAGAN · MEMORY ARCHIVE</div><h1 class="title">Bagan<em>in orbit.</em></h1><p class="sub">55 frames · one journey · a sky full of memories</p><button class="enter" id="enterGalaxy">Enter the memory galaxy →</button></div>
 <div class="line"></div><div class="corner left">21°10′N · 94°52′E</div><div class="corner right">SCROLL / DRAG / EXPLORE</div>
 </main>
-<audio id="memoryMusic" preload="auto" loop src="https://files.catbox.moe/va63xn.mp3"></audio>
 <script>
 const enter=document.getElementById('enterGalaxy');
-const music=document.getElementById('memoryMusic');
-enter.addEventListener('click',async()=>{
-  try{music.currentTime=0;await music.play()}catch(e){}
+enter.addEventListener('click',()=>{
   sessionStorage.setItem('baganMusic','playing');
-  location.href='galaxy.html';
+  location.href='galaxy.html?music=1';
 });
 </script>
 </body>
