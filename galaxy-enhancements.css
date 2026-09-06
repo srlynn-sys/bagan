@@ -1,0 +1,21 @@
+/* Bagan — second page cinematic enhancement layer */
+#space{isolation:isolate}
+#space:after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at center,transparent 24%,rgba(2,1,6,.08) 52%,rgba(2,1,6,.48) 100%);mix-blend-mode:multiply}
+.orbit-trails{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.orbit-trails span{position:absolute;left:50%;top:52%;width:72vw;height:22vw;border:1px solid rgba(239,178,104,.11);border-radius:50%;transform:translate(-50%,-50%) rotate(-12deg);box-shadow:0 0 35px rgba(221,155,88,.04);animation:trailFloat 10s ease-in-out infinite alternate}
+.orbit-trails span:nth-child(2){width:92vw;height:29vw;transform:translate(-50%,-50%) rotate(13deg);border-color:rgba(188,143,233,.08);animation-delay:-3s;animation-duration:14s}
+.orbit-trails span:nth-child(3){width:116vw;height:38vw;transform:translate(-50%,-50%) rotate(-7deg);border-color:rgba(255,218,166,.06);animation-delay:-6s;animation-duration:18s}
+.cinematic-particles{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.cinematic-particles i{position:absolute;width:2px;height:2px;border-radius:50%;background:#ffe2b0;box-shadow:0 0 9px rgba(255,194,112,.7);opacity:.5;animation:particleFloat linear infinite}
+.photo{will-change:transform,opacity,filter;transition:border-color .35s,box-shadow .35s,filter .35s}
+.photo:before{content:'';position:absolute;inset:-1px;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,224,177,.16) 49%,transparent 62%);transform:translateX(-120%);transition:transform .7s ease}
+.photo:hover:before{transform:translateX(120%)}
+.photo:hover{filter:brightness(1.08) saturate(1.05)}
+#core{filter:drop-shadow(0 0 30px rgba(237,169,91,.12))}
+#core:after{content:'';position:absolute;left:50%;top:50%;width:430px;height:430px;margin:-215px;border-radius:50%;border:1px solid rgba(255,211,154,.05);box-shadow:0 0 90px rgba(217,140,81,.08);animation:outerRing 16s linear infinite}
+#viewer.open #viewerImg{animation:viewerImageCinematic .75s cubic-bezier(.16,1,.3,1) both}
+@keyframes trailFloat{to{transform:translate(-50%,-50%) rotate(-8deg) scale(1.04);opacity:.72}}
+@keyframes particleFloat{0%{transform:translate3d(0,30px,0) scale(.6);opacity:0}15%{opacity:.55}70%{opacity:.35}100%{transform:translate3d(35px,-110vh,0) scale(1.1);opacity:0}}
+@keyframes outerRing{to{transform:rotate(360deg)}}
+@keyframes viewerImageCinematic{from{opacity:0;transform:scale(.88) translateY(28px);filter:brightness(.65) blur(8px)}to{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){.orbit-trails,.cinematic-particles,#core:after{display:none}.photo:before{display:none}}
