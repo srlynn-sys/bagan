@@ -1,38 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#17100b" />
-  <title>Bagan — 55 Memories</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#120b08">
+<title>Bagan — 55 Memories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="scene-bg" aria-hidden="true">
-    <div class="sun"></div><div class="haze haze-1"></div><div class="haze haze-2"></div>
-    <div class="temple-line temple-back"></div><div class="temple-line temple-front"></div><div class="ground"></div>
-  </div>
-  <main class="page">
-    <header class="hero">
-      <div class="eyebrow">A JOURNEY THROUGH BAGAN</div>
-      <h1>55 Moments<br><em>Under the Bagan Sky</em></h1>
-      <p>Drag to travel through every memory. Click a photograph to open it.</p>
-      <button class="start-btn" id="startBtn">Enter the memories <span>↓</span></button>
-    </header>
-    <section class="gallery" id="gallery" aria-label="360 degree memory gallery">
-      <div class="gallery-top"><span>01 — 55</span><span>DRAG · SWIPE · EXPLORE</span></div>
-      <div class="stage" id="stage"><div class="ring" id="ring"></div><div class="shadow"></div></div>
-      <div class="controls"><button id="prev" aria-label="Previous photo">←</button><div class="progress"><span id="progressBar"></span></div><button id="next" aria-label="Next photo">→</button></div>
-    </section>
-    <section class="memory-note">
-      <div><span class="eyebrow">MEMORY BOOK</span><h2>One trip.<br><em>Fifty-five little stories.</em></h2></div>
-      <p>Put your 55 travel photos inside <b>images/</b> as photo-01.jpg through photo-55.jpg. The gallery arranges them around a full 360° ring.</p>
-    </section>
-  </main>
-  <div class="lightbox" id="lightbox" aria-hidden="true"><button class="close" id="closeLightbox" aria-label="Close">×</button><img id="lightboxImage" src="" alt="Bagan travel memory" /><div class="lightbox-caption" id="lightboxCaption"></div></div>
-  <script src="script.js"></script>
+<div id="loader"><div class="loader-ring"></div><span>ENTERING BAGAN</span></div>
+<main>
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-copy"><div class="eyebrow">A PRIVATE JOURNEY · BAGAN, MYANMAR</div><h1>55 Memories<br><em>Under One Sky</em></h1><p>Drag anywhere to turn around. Look across the Bagan horizon and discover the memories from the journey.</p><button id="enter" class="pill">ENTER THE JOURNEY <span>↗</span></button></div>
+  <div class="hint"><span class="mouse"></span><span>DRAG TO LOOK AROUND</span></div>
+</section>
+<section class="world" id="world" aria-label="360 degree Bagan memory world">
+  <canvas id="panorama"></canvas>
+  <div class="vignette"></div><div class="grain"></div><div class="stars"></div>
+  <header class="world-ui"><div><span class="eyebrow">BAGAN · 360°</span><h2>Our little journey</h2></div><div class="counter"><strong id="count">01</strong><span>/ 55 MEMORIES</span></div></header>
+  <div class="drag-label">← DRAG · LOOK AROUND · DRAG →</div>
+  <div class="memory-dock" id="memoryDock"><button id="prev" aria-label="Previous memory">‹</button><div class="thumb" id="thumb"></div><div class="memory-info"><span id="memoryNo">MEMORY 01</span><b id="memoryTitle">A moment in Bagan</b></div><button id="next" aria-label="Next memory">›</button></div>
+  <div class="photo-modal" id="photoModal" aria-hidden="true"><button id="close" aria-label="Close">×</button><img id="modalImg" alt="Bagan travel memory"><div class="modal-caption" id="modalCaption"></div></div>
+  <button class="explore" id="explore">EXPLORE 55 MEMORIES ↓</button>
+</section>
+<section class="memories" id="memories"><div class="section-head"><div><span class="eyebrow">MEMORY BOOK</span><h2>Fifty-five little stories.</h2></div><p>Every photograph from the trip, collected in one quiet place.</p></div><div class="grid" id="grid"></div></section>
+<footer>MADE FOR A BAGAN MEMORY · 55 PHOTOGRAPHS</footer>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
