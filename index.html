@@ -2,36 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0908">
-<meta name="description" content="A cinematic Bagan, Myanmar travel memory archive.">
-<title>Bagan — Memory Archive</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
-<link rel="stylesheet" href="gallery.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05030a">
+<title>Bagan — A Memory in Orbit</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05030a;color:#f7ead7}body{font-family:Georgia,'Times New Roman',serif}.intro{position:relative;width:100%;height:100%;display:grid;place-items:center;overflow:hidden;background:#07040b}.intro:before{content:'';position:absolute;inset:-15%;background:radial-gradient(circle at 68% 46%,rgba(235,164,86,.32),transparent 20%),linear-gradient(110deg,rgba(3,2,8,.92),rgba(8,4,12,.25)),url('https://lh3.googleusercontent.com/d/1Qqbqb0PGfz9gXSbXrmHnBOL_2GUFtIKx') center/cover;filter:saturate(.78);transform:scale(1.06);animation:breath 12s ease-in-out infinite alternate}.intro:after{content:'';position:absolute;inset:0;background:radial-gradient(circle,transparent 20%,rgba(0,0,0,.58) 100%)}.dust{position:absolute;inset:0;z-index:1;background-image:radial-gradient(circle,rgba(255,218,166,.7) 0 1px,transparent 1.5px);background-size:87px 93px;opacity:.18;animation:drift 22s linear infinite}.center{position:relative;z-index:3;text-align:center;width:min(800px,90vw);animation:rise 1.4s ease both}.eyebrow{font:10px monospace;letter-spacing:.45em;color:#e4a45d}.title{margin:25px 0 12px;font-size:clamp(64px,11vw,150px);line-height:.78;font-weight:400;letter-spacing:-.065em;text-shadow:0 12px 60px #000}.title em{display:block;color:#e4ad70;font-style:italic;font-size:.62em;margin-top:22px}.sub{margin:28px auto 42px;color:#d1c1ad;font:11px monospace;letter-spacing:.18em;text-transform:uppercase}.enter{border:1px solid rgba(237,178,105,.6);background:rgba(8,5,10,.35);color:#f2c17f;padding:16px 28px;letter-spacing:.22em;text-transform:uppercase;font:10px monospace;cursor:pointer;backdrop-filter:blur(8px);transition:.4s}.enter:hover{background:#e2a45b;color:#160b08;box-shadow:0 0 45px rgba(228,164,91,.25);transform:translateY(-3px)}.line{position:absolute;z-index:3;left:7vw;right:7vw;bottom:32px;height:1px;background:linear-gradient(90deg,transparent,#dca46655,transparent)}.corner{position:absolute;z-index:3;bottom:43px;font:8px monospace;letter-spacing:.2em;color:#9f8c78}.left{left:7vw}.right{right:7vw}@keyframes breath{to{transform:scale(1.13);filter:saturate(.95) brightness(1.05)}}@keyframes drift{to{transform:translate3d(45px,-70px,0)}}@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@media(max-width:600px){.corner{display:none}.sub{line-height:1.8}.title{font-size:72px}}
+</style>
 </head>
 <body>
-<div id="root"><div style="min-height:100vh;background:#0b0908;color:#e9d8c3;display:grid;place-items:center;font-family:system-ui,sans-serif"><div style="text-align:center"><div style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#d99b59">BAGAN · MYANMAR</div><div style="margin-top:14px;font-size:22px">Loading the memory archive…</div></div></div></div>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
-<script>
-(function(){
-  const R=window.React;
-  const passthrough=['initial','animate','exit','whileInView','viewport','transition','layout','layoutId','whileHover','whileTap','onAnimationStart','onAnimationComplete'];
-  const makeMotion=(tag)=>R.forwardRef((props,ref)=>{const clean={};Object.keys(props||{}).forEach(k=>{if(!passthrough.includes(k))clean[k]=props[k]});return R.createElement(tag,{...clean,ref});});
-  const motion=new Proxy({}, {get:(_,tag)=>makeMotion(tag)});
-  window.Motion={motion,AnimatePresence:({children})=>R.createElement(R.Fragment,null,children)};
-  const iconNames=['MapPin','Play','Pause','Volume2','VolumeX','X','ChevronLeft','ChevronRight','Camera','CalendarDays','Mic2','ArrowDown','Menu','LocateFixed'];
-  const icons={};
-  iconNames.forEach(name=>{icons[name]=R.forwardRef((props,ref)=>R.createElement('svg',{ref,width:props.size||18,height:props.size||18,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:props.strokeWidth||1.7,strokeLinecap:'round',strokeLinejoin:'round','aria-hidden':'true'},R.createElement('circle',{cx:12,cy:12,r:7})));});
-  window.lucide=icons;
-  window.addEventListener('error',e=>console.error('Bagan boot error:',e.error||e.message));
-})();
-</script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel" data-presets="react" src="app.js"></script>
+<main class="intro">
+<div class="dust"></div><div class="center"><div class="eyebrow">MYANMAR · BAGAN · MEMORY ARCHIVE</div><h1 class="title">Bagan<em>in orbit.</em></h1><p class="sub">55 frames · one journey · a sky full of memories</p><button class="enter" onclick="location.href='galaxy.html'">Enter the memory galaxy →</button></div>
+<div class="line"></div><div class="corner left">21°10′N · 94°52′E</div><div class="corner right">SCROLL / DRAG / EXPLORE</div>
+</main>
 </body>
 </html>
