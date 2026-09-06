@@ -1,0 +1,34 @@
+/* Bagan — viewer scale, tap-to-close and mobile intro polish */
+#close{display:none!important}
+#viewer{touch-action:manipulation;transition:background .55s ease,backdrop-filter .55s ease}
+#viewer>img{cursor:pointer;touch-action:manipulation;will-change:transform,opacity,filter;transition:transform .45s cubic-bezier(.16,1,.3,1),filter .45s ease,opacity .35s ease}
+#viewer.open>img{transform:scale(1)}
+.viewer-galaxy-core{width:760px;height:760px;margin:-380px;animation-duration:24s}
+.viewer-galaxy-cluster{width:620px;height:620px;margin:-310px}
+.viewer-core-ring{width:500px;height:500px;margin:-250px}
+.viewer-core-glow{width:350px;height:350px;margin:-175px}
+.viewer-galaxy-cluster:before{inset:-34px}
+.viewer-galaxy-cluster:after{inset:-56px}
+.viewer-nebula.vn1{width:105vw;height:42vw;left:-2%;top:24%}
+.viewer-nebula.vn2{width:95vw;height:35vw;left:3%;top:48%}
+#viewerText{pointer-events:none}
+@media(max-width:700px){
+  .viewer-galaxy-core{width:470px;height:470px;margin:-235px}
+  .viewer-galaxy-cluster{width:385px;height:385px;margin:-192.5px}
+  .viewer-core-ring{width:305px;height:305px;margin:-152.5px}
+  .viewer-core-glow{width:215px;height:215px;margin:-107.5px}
+  .viewer-galaxy-cluster:before{inset:-22px}
+  .viewer-galaxy-cluster:after{inset:-35px}
+  .viewer-nebula.vn1{width:150vw;height:70vw;left:-25%;top:20%}
+  .viewer-nebula.vn2{width:135vw;height:60vw;left:-18%;top:50%}
+  #viewer{padding:18px}
+  #viewer>img{max-width:88vw;max-height:72vh}
+  #viewerText{bottom:18px;font-size:8px;letter-spacing:.14em}
+}
+@media(max-width:390px){
+  .viewer-galaxy-core{width:410px;height:410px;margin:-205px}
+  .viewer-galaxy-cluster{width:335px;height:335px;margin:-167.5px}
+  .viewer-core-ring{width:270px;height:270px;margin:-135px}
+  .viewer-core-glow{width:190px;height:190px;margin:-95px}
+}
+@media(prefers-reduced-motion:reduce){#viewer>img{transition:none}.viewer-galaxy-core{animation:none!important}}
