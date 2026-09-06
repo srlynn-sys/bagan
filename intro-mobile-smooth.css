@@ -1,0 +1,29 @@
+/* Bagan — mobile-first intro refinement */
+.intro{min-height:100svh;height:100svh}
+.intro:before{will-change:transform,filter;background-position:center center}
+.intro .center{width:min(800px,88vw);padding-inline:4px}
+.intro .eyebrow{font-size:clamp(8px,2.2vw,10px);letter-spacing:clamp(.22em,.9vw,.45em)}
+.intro .title{font-size:clamp(58px,16vw,150px);line-height:.82;margin:clamp(18px,4vw,25px) 0 12px}
+.intro .title em{margin-top:16px;font-size:.58em}
+.intro .sub{font-size:clamp(8px,2.4vw,11px);letter-spacing:.12em;line-height:1.7;margin:24px auto 32px;max-width:34em}
+.intro .enter{min-height:52px;padding:15px 19px;font-size:9px;letter-spacing:.15em;border-radius:2px;max-width:88vw;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.intro .line{left:9vw;right:9vw;bottom:max(20px,env(safe-area-inset-bottom))}
+.intro .cursor-glow{display:none}
+@media(min-width:701px){.intro .cursor-glow{display:block}}
+@media(max-width:600px){
+  .intro{place-items:center;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+  .intro:before{inset:-16%;background-position:center center;transform:scale(1.12);animation-duration:18s}
+  .intro .center{width:90vw}
+  .intro .eyebrow{white-space:nowrap}
+  .intro .sub{max-width:29em;margin-bottom:30px}
+  .intro .enter{width:auto;min-width:230px}
+  .intro .dust{opacity:.12}
+  .intro .light-sweep{opacity:.6}
+}
+@media(max-width:390px){
+  .intro .eyebrow{font-size:7px;letter-spacing:.16em}
+  .intro .title{font-size:58px}
+  .intro .sub{font-size:8px;margin-top:20px;margin-bottom:26px}
+  .intro .enter{min-width:214px;padding-inline:15px;font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.intro:before{animation:none}.intro .light-sweep{display:none}}
